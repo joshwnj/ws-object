@@ -35,8 +35,6 @@ function Client (obj, wsClient) {
   this._setup();
 }
 
-Client.prototype.isValidMessage = message.isValid;
-
 Client.prototype._send = function (data) {
   this.wsClient.send(message.encode(data));
 };
@@ -48,8 +46,6 @@ Client.prototype._sendRefresh = function () {
 };
 
 Client.prototype._onMessage = function (msg) {
-  if (!message.isValid(msg)) { return; }
-
   var data = message.decode(msg);
   if (!data) { return; }
 

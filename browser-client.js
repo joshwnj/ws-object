@@ -83,10 +83,7 @@ Client.prototype._send = function (data) {
 
 Client.prototype._setup = function () {
   var self = this;
-  this.ws.onmessage = function (event) {
-    //> ignore unprefixed messages
-    if (!message.isValid(event.data)) { return; }
-
+  this.ws.addEventListener('message', function (event) {
     var data = message.decode(event.data);
     if (!data) { return; }
 
@@ -96,7 +93,7 @@ Client.prototype._setup = function () {
     }
 
     handler(self, data);
-  };
+  });
 };
 
 module.exports = Client;
