@@ -1,4 +1,5 @@
 var Changes = require('./changes');
+var ObjClient = require('./client');
 
 function Obj (applyPatchFunc, initialState, initialSeq) {
   this.applyPatch = applyPatchFunc || require('./default-apply-patch');
@@ -11,6 +12,10 @@ function Obj (applyPatchFunc, initialState, initialSeq) {
 
   this.events = new (require('events').EventEmitter)();
 }
+
+Obj.prototype.attachClient = function (client) {
+  return new ObjClient(this, client);
+};
 
 /*
 
