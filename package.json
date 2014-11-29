@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Very simple replication of objects over a websocket",
   "main": "index.js",
+  "browser": "browser-client.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
