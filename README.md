@@ -1,4 +1,4 @@
-simple-rep
+ws-object
 ====
 
 Very simple replication of objects over a websocket.
