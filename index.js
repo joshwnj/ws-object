@@ -1,7 +1,7 @@
 var Changes = require('./changes');
 
 function Obj (applyPatchFunc, initialState, initialSeq) {
-  this.applyPatch = applyPatchFunc || function () {};
+  this.applyPatch = applyPatchFunc || require('./default-apply-patch');
 
   this._state = initialState || {};
   this._changes = new Changes({
